@@ -8,4 +8,12 @@ export default NextAuth({
       clientSecret: process.env.TWITTER_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    async signIn(user, account, profile) {
+      return true;
+    },
+  },
+  pages: {
+    signIn: '/auth/signin',
+  },
 });
